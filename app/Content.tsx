@@ -7,6 +7,7 @@ import { useGlobalContext } from "@/context";
 
 
 const { headerCoverIcon, introCoverIcon } = localData.svgs;
+const {catImage, birdsImage} = localData.images;
 
 const Content = () => {
   return (
@@ -111,6 +112,10 @@ const ContactSection = () => {
         <div className="contact-content lg:flex gap-[100px] max-w-[1060px] mx-auto ">
           <h2 className="contact-title text-2xl md:text-3xl font-medium mx-auto lg:mx-0 mb-8 lg:mb-0 max-w-[500px]  lg:max-w-[250px] text-center lg:text-right">
             Say hi and tell us more about your creative challenge
+            <div>
+              <img className="w-[300px]" src={ catImage} alt="" />
+              <img className="w-[100px]" src={ birdsImage} alt="" />
+            </div>
           </h2>
           <form
             className="row flex-1"

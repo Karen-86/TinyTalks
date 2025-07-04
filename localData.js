@@ -1,6 +1,8 @@
 const images = {
   logo: "/assets/images/logo.png",
   exampleImage: "/assets/images/example.png",
+  catImage: "/assets/images/rest/cat.gif",
+  birdsImage: "/assets/images/rest/birds.gif",
 };
 
 const localData = {
