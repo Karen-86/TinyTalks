@@ -23,19 +23,26 @@ export default function Provider({
 }>) {
   const [state, setState] = useState<StateType>({});
 
-    const { alert} = useAlert();
+  const { alert } = useAlert();
 
   const sendEmail = ({ event, service, template, form, public_key, setIsLoading }: any) => {
-    setIsLoading(true)
+    setIsLoading(true);
     event.preventDefault();
+    if (state.isFormSubmitted) {
+      alert("Your message is already sent.");
+      setIsLoading(false);
+      return;
+    }
     emailjs.sendForm(service, template, form, public_key).then(
       (result) => {
         alert("Your message was successfully sent.");
-        setIsLoading(false)
+        setState((prev) => ({ ...prev, isFormSubmitted: true }));
+
+        setIsLoading(false);
       },
       (error) => {
         alert("Something went wrong. Please try again.");
-        setIsLoading(false)
+        setIsLoading(false);
       }
     );
   };
