@@ -9,8 +9,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content md:flex gap-5 items-end justify-between mb-8">
           <h5 className="text-2xl md:text-4xl font-medium mb-[100px] md:mb-0">
-            The end.
-            <br /> or a new beginning...{" "}
+            Mind the time.
           </h5>
           <p className="text-sm  ml-auto w-fit">
             ©Thel LLC <br /> All rights reserved

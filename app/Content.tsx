@@ -190,10 +190,10 @@ const ContactSection = () => {
             onSubmit={(e) =>
               sendEmail({
                 event: e,
-                service: "service_v5syn9r",
-                template: "template_6ra30nj",
+                service: "service_m0znoir",
+                template: "template_u1lzg8d",
                 form: e.target,
-                public_key: "w7ph9DnOyRTPjx2Mq",
+                public_key: "XROQkLsbKgfMPUjh6",
                 setIsLoading: setIsLoading,
               })
             }

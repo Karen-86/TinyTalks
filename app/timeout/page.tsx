@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function TimeoutPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-neutral-100 px-4">
@@ -8,12 +10,12 @@ export default function TimeoutPage() {
         <p className="text-neutral-500 text-base">
           No activity was detected for 3 minutes.
         </p>
-        <a
+        <Link
           href="/"
           className="mt-4 inline-block px-6 py-2 rounded-md bg-neutral-200 text-neutral-700 hover:bg-neutral-300 transition"
         >
           Return to Home
-        </a>
+        </Link>
       </div>
     </div>
   );
