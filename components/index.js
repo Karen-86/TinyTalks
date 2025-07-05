@@ -1,4 +1,5 @@
 export { default as Navbar } from "./navbar/Navbar.tsx";
+export { default as CountdownTimer } from "./countdown-timer/CountdownTimer.tsx";
 export { ButtonDemo } from "./button/ButtonDemo.tsx";
 export { SheetDemo } from "./sheet/SheetDemo.tsx";
 export { AccordionDemo } from "./accordion/AccordionDemo.tsx";

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Navbar, Footer, InputDemo, TextareaDemo, ButtonDemo, SelectScrollable } from "@/components/index.js";
+import { Navbar, Footer, InputDemo, ButtonDemo, SelectScrollable } from "@/components/index.js";
 import localData from "@/localData";
 import { useGlobalContext } from "@/context";
 
@@ -169,23 +169,18 @@ const ContactSection = () => {
   ]);
 
   const callback = (item: any) => {
-    console.log(item);
       setState((prev) => ({
       ...prev,
       [item.name]: item.value,
     }));
   };
 
-  useEffect(() => {
-    console.log(state, ' her')  
-  },[state])
-
   return (
     <section id="contact" className=" py-[3rem] md:pt-[3rem] md:py-[7.5rem]">
       <div className="container">
         <div className="contact-content lg:flex gap-[100px] max-w-[1060px] mx-auto ">
-          <h2 className="contact-title text-2xl md:text-3xl font-medium mx-auto lg:mx-0 mb-8 lg:mb-0 max-w-[500px]  lg:max-w-[250px] text-center lg:text-right">
-            Say hi and tell us more about your creative challenge
+          <h2 className="contact-title text-2xl md:text-3xl font-medium mx-auto lg:mx-0 mb-8 lg:mb-0 max-w-[500px]  lg:max-w-[300px] text-center lg:text-right">
+           Let’s start the conversation—reach out and tell us what you’re working on.
           </h2>
           <form
             className="row flex-1"
