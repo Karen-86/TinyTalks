@@ -135,6 +135,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   @media (min-width: 2560px) {
     font-size: calc(16px * 2560 / 1920);
   }

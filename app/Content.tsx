@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Navbar, Footer, InputDemo, TextareaDemo, ButtonDemo } from "@/components/index.js";
+import { Navbar, Footer, InputDemo, TextareaDemo, ButtonDemo, SelectScrollable } from "@/components/index.js";
 import localData from "@/localData";
 import { useGlobalContext } from "@/context";
 
-
 const { headerCoverIcon, introCoverIcon } = localData.svgs;
-const {catImage, birdsImage} = localData.images;
+const { catImage, birdsImage } = localData.images;
 
 const Content = () => {
   return (
@@ -31,7 +30,7 @@ const ShowcaseSection = () => {
     <header className="showcase   flex items-center text-center">
       <div className="container">
         <div className="header-cover max-w-[400px] 4xl:max-w-[40%] mx-auto mb-[0px]">{headerCoverIcon}</div>
-        <h1 className="text-[8vw] md:text-[6vw] font-medium leading-none ">Website Title here</h1>
+        <h1 className="text-[10vw] md:text-[6vw] font-medium leading-none ">Thel LLC</h1>
       </div>
     </header>
   );
@@ -41,19 +40,15 @@ const AboutSection = () => {
   return (
     <section className="about bg-black text-white text-[1.2rem] md:text-[1.8rem] font-[300] py-[3rem] md:py-[7.5rem]">
       <div className="container">
-        <div className="about-content max-w-[800px] 6xl:max-w-none mx-auto xl:mx-0">
+        <div className="about-content max-w-[750px] 6xl:max-w-none mx-auto xl:mx-0">
           <p className="mb-[2rem]">
-            "Brands that don’t move, don’t get noticed."—and we couldn’t agree more!
+            Thel.agency is a modern consultancy focused on practical, high-impact improvements. We combine
+            precision marketing, operational streamlining, and digital transformation to help brands like
+            yours find their own way forward.
           </p>
           <p className="mb-[2rem]">
-            At stickbird.studio, motion isn’t an afterthought—it’s the secret sauce, the main course, the
-            whole damn feast. We don’t just add movement; we breathe life into brands, making sure they don’t
-            just exist but stand out, captivate, and stick. Motion is not a “nice to have” anymore—it’s the
-            future, and we’re here for it.
-          </p>
-          <p className="">
-            So if you’re still thinking of brand identity as a static thing… well, it’s time to get things
-            moving. Literally.
+            From leading ad campaigns, to rethinking outdated workflows, to guiding you through AI-powered
+            solutions — we help businesses like yours unlock what's next.
           </p>
         </div>
       </div>
@@ -64,24 +59,14 @@ const AboutSection = () => {
 const IntroSection = () => {
   return (
     <section className="intro  text-[1rem]  font-normal py-[3rem] md:pb-[3rem] md:py-[7.5rem]">
-      <div className="container lg:flex">
-        <div className="about-content max-w-[500px] lg:max-w-none mx-auto xl:mx-[50px]">
+      <div className="container lg:flex justify-between items-center max-w-[1000px]">
+        <div className="about-content max-w-[400px]  mx-auto xl:mx-[50px]">
           <p className="mb-[2rem]">
-            We believe in keeping things real: honesty, integrity, and building strong, respectful
-            relationships are at the core of what we do.{" "}
-          </p>
-          <p className="mb-[2rem]">
-            As creative industry pros, we’re passionate about pushing boundaries and having fun while moving
-            the industry forward. With a combined 38 years of experience across Europe and Australia, we've
-            learned a lot—but we never stop learning.
-          </p>
-          <p className="">
-            At stickbird studio, we acknowledge the Traditional Owners and Custodians of Country throughout
-            Australia and honour their deep connection to land, waters, and community. We pay our respects to
-            the cultures, the people, and the elders—past, present, and emerging.
+            Local legends. Startup rebels. Enterprise reshapers. If you're ready to grow with intent and
+            integrity, we’re here to collaborate.
           </p>
         </div>
-        <div className="intro-cover w-full max-w-[500px]  mx-auto">{introCoverIcon}</div>
+        <div className="intro-cover  max-w-[300px] mx-auto">{introCoverIcon}</div>
       </div>
     </section>
   );
@@ -90,14 +75,17 @@ const IntroSection = () => {
 const ContactSection = () => {
   const { sendEmail } = useGlobalContext();
 
-
   const [state, setState] = useState({
     name: "",
     submitted_email: "",
-    message: "",
+    company: "",
+
+    problems: "",
+    timeline: '',
+    budgetRange: ''
   });
-  const [isLoading, setIsLoading] = useState(false)
-  
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setState((prev) => ({
@@ -106,16 +94,98 @@ const ContactSection = () => {
     }));
   };
 
+  const [timeline, setTimeline] = useState([
+    {
+      id: 1,
+      label: "ASAP",
+      value: "ASAP",
+    },
+    {
+      id: 2,
+      label: "a couple of weeks",
+      value: "a couple of weeks",
+    },
+    {
+      id: 3,
+      label: "a couple of month",
+      value: "a couple of month",
+    },
+    {
+      id: 4,
+      label: "long term engagement",
+      value: "long term engagement",
+    },
+    {
+      id: 5,
+      label: "to be confirmed",
+      value: "to be confirmed",
+    },
+
+  ]);
+
+  const [problems, setProblems] = useState([
+    {
+      id: 1,
+      label: "Low conversion rates",
+      value: "Low conversion rates",
+    },
+    {
+      id: 2,
+      label: "Tracking issues",
+      value: "Tracking issues",
+    },
+    {
+      id: 3,
+      label: "Scaling campaigns",
+      value: "Scaling campaigns",
+    },
+  ]);
+  const [budgetRange, setBudgetRange] = useState([
+    {
+      id: 1,
+      label: "Under $10K",
+      value: "Under $10K",
+    },
+    {
+      id: 2,
+      label: "$10K - 30K",
+      value: "$10K - 30K",
+    },
+    {
+      id: 3,
+      label: "$30K - 50K",
+      value: "$30K - 50K",
+    },
+    {
+      id: 4,
+      label: "$50K +",
+      value: "$50K +",
+    },
+    {
+      id: 5,
+      label: "to be confirmed",
+      value: "to be confirmed",
+    },
+  ]);
+
+  const callback = (item: any) => {
+    console.log(item);
+      setState((prev) => ({
+      ...prev,
+      [item.name]: item.value,
+    }));
+  };
+
+  useEffect(() => {
+    console.log(state, ' her')  
+  },[state])
+
   return (
     <section id="contact" className=" py-[3rem] md:pt-[3rem] md:py-[7.5rem]">
       <div className="container">
         <div className="contact-content lg:flex gap-[100px] max-w-[1060px] mx-auto ">
           <h2 className="contact-title text-2xl md:text-3xl font-medium mx-auto lg:mx-0 mb-8 lg:mb-0 max-w-[500px]  lg:max-w-[250px] text-center lg:text-right">
             Say hi and tell us more about your creative challenge
-            <div>
-              <img className="w-[300px]" src={ catImage} alt="" />
-              <img className="w-[100px]" src={ birdsImage} alt="" />
-            </div>
           </h2>
           <form
             className="row flex-1"
@@ -129,18 +199,12 @@ const ContactSection = () => {
                 template: "template_6ra30nj",
                 form: e.target,
                 public_key: "w7ph9DnOyRTPjx2Mq",
-                setIsLoading: setIsLoading
+                setIsLoading: setIsLoading,
               })
             }
           >
-            <input
-              type="hidden"
-              name="hidden_text"
-              value="this is hidden text"
-              className="form-control block border"
-            />
             <InputDemo
-              placeholder="John"
+              placeholder="Jane"
               className="mb-6"
               inputClassName="py-6"
               name="name"
@@ -151,7 +215,7 @@ const ContactSection = () => {
               callback={(e) => handleOnChange(e)}
             />
             <InputDemo
-              placeholder="john@loremipsum.com"
+              placeholder="jane@company.com"
               className="mb-6"
               inputClassName="py-6"
               name="submitted_email"
@@ -161,8 +225,58 @@ const ContactSection = () => {
               value={state.submitted_email}
               callback={(e) => handleOnChange(e)}
             />
+            <InputDemo
+              placeholder="Acme Inc."
+              className="mb-6"
+              inputClassName="py-6"
+              name="company"
+              type="text"
+              label="Company Name"
+              required={true}
+              value={state.company}
+              callback={(e) => handleOnChange(e)}
+            />
+            <SelectScrollable
+              label="State the Problem(s) to Be Solved"
+              defaultItems={problems}
+              callback={(item) => callback({ ...item, name: "problems" })}
+              placeholder="Select State..."
+              triggerClassName={`selectScrollable-trigger-custom py-6 mb-6 w-full`}
+              contentClassName={`selectScrollable-content-custom `}
+            />
+            <input
+              type="hidden"
+              name="problems"
+              value={state.problems}
+            />
+            <SelectScrollable
+              label="Your Timeline"
+              defaultItems={timeline}
+              callback={(item) => callback({ ...item, name: "timeline" })}
+              placeholder="Select Speed..."
+              triggerClassName={`selectScrollable-trigger-custom py-6 mb-6 w-full`}
+              contentClassName={`selectScrollable-content-custom `}
+            />
+            <input
+              type="hidden"
+              name="timeline"
+              value={state.timeline}
+            />
+            <SelectScrollable
+              label="Your Budget Range"
+              defaultItems={budgetRange}
+              callback={(item) => callback({ ...item, name: "budgetRange" })}
+              placeholder="Select Range..."
+              triggerClassName={`selectScrollable-trigger-custom py-6 mb-6 w-full`}
+              contentClassName={`selectScrollable-content-custom `}
+            />
+            <input
+              type="hidden"
+              name="budgetRange"
+              value={state.budgetRange}
+            />
 
-            <TextareaDemo
+            {/* <TextareaDemo
               label="Your Message"
               placeholder="Please tell us about you..."
               className="mb-6"
@@ -172,7 +286,7 @@ const ContactSection = () => {
               required={true}
               value={state.message}
               callback={(e) => handleOnChange(e)}
-            />
+            /> */}
 
             <ButtonDemo disabled={isLoading} text="Submit" className="w-full py-5" />
           </form>

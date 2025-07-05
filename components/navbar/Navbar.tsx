@@ -40,15 +40,15 @@ export default function Navbar() {
       <div className="container flex flex-col md:flex-row gap-3 items-end md:items-start justify-between py-[50px]">
         {/* <img src={logo} alt="" className="max-w-[50px] h-auto " /> */}
         <a href="#contact" className="text-[1.1rem] md:text-[1.2rem] max-w-[300px] font-medium leading-[1.4] text-end md:text-start underline md:no-underline">
-          The best ideas start as conversations—Let’s chat
+          Achieving Big Goals Starts With Stating Them: We’re Listening
         </a>
         {/* <NavigationMenuDemo /> */}
 
         {/* <SidebarNavigationMenuDemo /> */}
 
         <div className="btn-group   md:flex gap-[50px] ">
-          <a href="#" target="_blank" className="text-[1.1rem] md:text-[1.2rem] block underline md:no-underline font-medium hover:underline">Instagram</a>
-          <a href="#" target="_blank" className="text-[1.1rem] md:text-[1.2rem] block underline md:no-underline font-medium hover:underline">LinkedIn</a>
+          {/* <a href="#" target="_blank" className="text-[1.1rem] md:text-[1.2rem] block underline md:no-underline font-medium hover:underline">Instagram</a>
+          <a href="#" target="_blank" className="text-[1.1rem] md:text-[1.2rem] block underline md:no-underline font-medium hover:underline">LinkedIn</a> */}
         </div>
       </div>
     </nav>
