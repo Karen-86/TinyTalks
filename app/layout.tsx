@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://next-modules.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thel.agency/";
 
 export const metadata: Metadata = {
   title: "Thel LLC : A Modern Business Growth Consultancy",
@@ -26,8 +26,7 @@ export const metadata: Metadata = {
     "We combine precision marketing, operational streamlining, and digital transformation to help brands like yours find their own way forward.",
   icons: {
     icon: [
-      { rel: "icon", url: "/assets/images/favicon/favicon-32x32.png", sizes: "32x32" },
-      { rel: "icon", url: "/assets/images/favicon/favicon-16x16.png", sizes: "16x16" },
+      { rel: "icon", url: "/assets/images/favicon/favicon-160x110.webp", sizes: "160x110" },
     ],
     apple: "/assets/images/favicon/apple-icon.png",
   },
@@ -37,7 +36,7 @@ export const metadata: Metadata = {
       "We combine precision marketing, operational streamlining, and digital transformation to help brands like yours find their own way forward.",
     url: `${siteUrl}`,
     siteName: "Your Website Name",
-    images: [`${siteUrl}/assets/images/og-image.png`], //recomened sizes 1200x630, 1080 × 566, 600 × 315 | aspect ratio 1.91:1
+    images: [`${siteUrl}/assets/images/og-image.webp`], //recomened sizes 1200x630, 1080 × 566, 600 × 315 | aspect ratio 1.91:1
     locale: "en_US",
     type: "website",
   },
@@ -46,7 +45,7 @@ export const metadata: Metadata = {
     title: "Thel LLC : A Modern Business Growth Consultancy",
     description:
       "We combine precision marketing, operational streamlining, and digital transformation to help brands like yours find their own way forward.",
-    images: [`${siteUrl}/assets/images/og-image.png`], //recomened sizes 1200x630, 1080 × 566, 600 × 315 | aspect ratio 1.91:1
+    images: [`${siteUrl}/assets/images/og-image.webp`], //recomened sizes 1200x630, 1080 × 566, 600 × 315 | aspect ratio 1.91:1
   },
 };
 
