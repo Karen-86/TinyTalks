@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Navbar, Footer, InputDemo, ButtonDemo, SelectScrollable } from "@/components/index.js";
+import { Navbar, Footer, InputDemo, ButtonDemo, SelectScrollable, TextareaDemo } from "@/components/index.js";
 import localData from "@/localData";
 import { useGlobalContext } from "@/context";
 
@@ -81,8 +81,8 @@ const ContactSection = () => {
     company: "",
 
     problems: "",
-    timeline: '',
-    budgetRange: ''
+    timeline: "",
+    budgetRange: "",
   });
   const [isLoading, setIsLoading] = useState(false);
 
@@ -120,26 +120,25 @@ const ContactSection = () => {
       label: "to be confirmed",
       value: "to be confirmed",
     },
-
   ]);
 
-  const [problems, setProblems] = useState([
-    {
-      id: 1,
-      label: "Low conversion rates",
-      value: "Low conversion rates",
-    },
-    {
-      id: 2,
-      label: "Tracking issues",
-      value: "Tracking issues",
-    },
-    {
-      id: 3,
-      label: "Scaling campaigns",
-      value: "Scaling campaigns",
-    },
-  ]);
+  // const [problems, setProblems] = useState([
+  //   {
+  //     id: 1,
+  //     label: "Low conversion rates",
+  //     value: "Low conversion rates",
+  //   },
+  //   {
+  //     id: 2,
+  //     label: "Tracking issues",
+  //     value: "Tracking issues",
+  //   },
+  //   {
+  //     id: 3,
+  //     label: "Scaling campaigns",
+  //     value: "Scaling campaigns",
+  //   },
+  // ]);
   const [budgetRange, setBudgetRange] = useState([
     {
       id: 1,
@@ -168,8 +167,10 @@ const ContactSection = () => {
     },
   ]);
 
+
   const callback = (item: any) => {
-      setState((prev) => ({
+   
+    setState((prev) => ({
       ...prev,
       [item.name]: item.value,
     }));
@@ -180,7 +181,7 @@ const ContactSection = () => {
       <div className="container">
         <div className="contact-content lg:flex gap-[100px] max-w-[1060px] mx-auto ">
           <h2 className="contact-title text-2xl md:text-3xl font-medium mx-auto lg:mx-0 mb-8 lg:mb-0 max-w-[500px]  lg:max-w-[300px] text-center lg:text-right">
-           Let’s start the conversation—reach out and tell us what you’re working on.
+            Let’s start the conversation—reach out and tell us what you’re working on.
           </h2>
           <form
             className="row flex-1"
@@ -231,19 +232,7 @@ const ContactSection = () => {
               value={state.company}
               callback={(e) => handleOnChange(e)}
             />
-            <SelectScrollable
-              label="State the Problem(s) to Be Solved"
-              defaultItems={problems}
-              callback={(item) => callback({ ...item, name: "problems" })}
-              placeholder="Select State..."
-              triggerClassName={`selectScrollable-trigger-custom py-6 mb-6 w-full`}
-              contentClassName={`selectScrollable-content-custom `}
-            />
-            <input
-              type="hidden"
-              name="problems"
-              value={state.problems}
-            />
+
             <SelectScrollable
               label="Your Timeline"
               defaultItems={timeline}
@@ -252,11 +241,7 @@ const ContactSection = () => {
               triggerClassName={`selectScrollable-trigger-custom py-6 mb-6 w-full`}
               contentClassName={`selectScrollable-content-custom `}
             />
-            <input
-              type="hidden"
-              name="timeline"
-              value={state.timeline}
-            />
+            <input type="hidden" name="timeline" value={state.timeline} />
             <SelectScrollable
               label="Your Budget Range"
               defaultItems={budgetRange}
@@ -265,22 +250,27 @@ const ContactSection = () => {
               triggerClassName={`selectScrollable-trigger-custom py-6 mb-6 w-full`}
               contentClassName={`selectScrollable-content-custom `}
             />
-            <input
-              type="hidden"
-              name="budgetRange"
-              value={state.budgetRange}
-            />
+            <input type="hidden" name="budgetRange" value={state.budgetRange} />
 
-            {/* <TextareaDemo
-              label="Your Message"
-              placeholder="Please tell us about you..."
+            <TextareaDemo
+              label="Key Problem"
+              placeholder="State the Problem(s) to Be Solved..."
               className="mb-6"
               textareaClassName="py-3 min-h-[120px]"
-              name="message"
+              name="problems"
               type="text"
-              required={true}
-              value={state.message}
+              // required={true}
+              value={state.problems}
               callback={(e) => handleOnChange(e)}
+            />
+
+            {/* <SelectScrollable
+              label="State the Problem(s) to Be Solved"
+              defaultItems={problems}
+              callback={(item) => callback({ ...item, name: "problems" })}
+              placeholder="Select State..."
+              triggerClassName={`selectScrollable-trigger-custom py-6 mb-6 w-full`}
+              contentClassName={`selectScrollable-content-custom `}
             /> */}
 
             <ButtonDemo disabled={isLoading} text="Submit" className="w-full py-5" />
