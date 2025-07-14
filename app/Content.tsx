@@ -13,8 +13,8 @@ import {
 import localData from "@/localData";
 import { useGlobalContext } from "@/context";
 
-const { headerCoverIcon, introCoverIcon, mercedes, kamado, forGood } = localData.svgs;
-const { catImage, birdsImage } = localData.images;
+const { headerCoverIcon, introCoverIcon, kurgo, kamado, forGood } = localData.svgs;
+const { mercedes } = localData.images;
 
 const Content = () => {
   return (
@@ -68,8 +68,9 @@ const AboutSection = () => {
 const BrandLogo = ({ item }: any) => {
   return (
     <>
-      <div className="brand-item px-[40px] py-[22px] rounded-[25px] duration-[.5s]">
-        <div className="w-[115px] h-[40px]">{item.cover}</div>
+      <div className="brand-item px-[40px] py-[22px] rounded-[25px] ">
+        {item.cover && <div className="w-[115px] h-[40px]">{item.cover}</div>}
+        {item.coverImage && <img className="w-[115px] h-[40px]" src={mercedes} alt="" />}
       </div>
       <style>
         {`
@@ -86,7 +87,6 @@ const BrandLogo = ({ item }: any) => {
              width: 100%;
              height: 100%;
              object-fit:contain;
-             transition: .3s;
              path {
               fill: #000;
              }
@@ -112,13 +112,16 @@ const BrandsSection = () => {
           className="custom-carousel mb-4"
           // autoplay={true}
           items={[
-            { cover: mercedes },
+            { coverImage: mercedes },
+            { cover: kurgo },
             { cover: kamado },
             { cover: forGood },
-            { cover: mercedes },
+            { coverImage: mercedes },
+            { cover: kurgo },
             { cover: kamado },
             { cover: forGood },
-            { cover: mercedes },
+            { coverImage: mercedes },
+            { cover: kurgo },
             { cover: kamado },
             { cover: forGood },
           ]}
@@ -131,13 +134,16 @@ const BrandsSection = () => {
           // autoplay={true}
           backwards={true}
           items={[
-            { cover: mercedes },
+            { coverImage: mercedes },
+            { cover: kurgo },
             { cover: kamado },
             { cover: forGood },
-            { cover: mercedes },
+            { coverImage: mercedes },
+            { cover: kurgo },
             { cover: kamado },
             { cover: forGood },
-            { cover: mercedes },
+            { coverImage: mercedes },
+            { cover: kurgo },
             { cover: kamado },
             { cover: forGood },
           ]}
