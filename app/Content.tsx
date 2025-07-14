@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Navbar, Footer, InputDemo, ButtonDemo, SelectScrollable, TextareaDemo } from "@/components/index.js";
+import {
+  Navbar,
+  Footer,
+  InputDemo,
+  ButtonDemo,
+  SelectScrollable,
+  TextareaDemo,
+  CarouselDemo,
+} from "@/components/index.js";
 import localData from "@/localData";
 import { useGlobalContext } from "@/context";
 
@@ -17,6 +25,7 @@ const Content = () => {
       <main className="home-page">
         <ShowcaseSection />
         <AboutSection />
+        <BrandsSection />
         <IntroSection />
         <ContactSection />
       </main>
@@ -51,6 +60,38 @@ const AboutSection = () => {
             solutions — we help businesses like yours unlock what's next.
           </p>
         </div>
+      </div>
+    </section>
+  );
+};
+
+const BrandLogo = ({ item }: any) => {
+  return <div>brandLogo</div>;
+};
+
+const BrandsSection = () => {
+  return (
+    <section className="about  text-[1.2rem] md:text-[1.8rem] font-[300] py-[3rem] md:py-[7.5rem]">
+      <div className="container">
+        <h2 className="contact-title text-2xl md:text-3xl font-medium mx-auto  mb-[80px] max-w-[500px]  lg:max-w-[300px] text-center">
+          Brands Our Team Has Worked With
+        </h2>
+      </div>
+      <div className="border">
+        <CarouselDemo
+          angles={false}
+          className="custom-carousel mx-[130px]"
+          autoplay={true}
+          items={[
+            { cover: "galleryImage1" },
+            { cover: "galleryImage2" },
+            { cover: "galleryImage4" },
+            { cover: "galleryImage5" },
+            { cover: "galleryImage6" },
+          ]}
+        >
+          {({ item, index }) => <BrandLogo item={item} index={index} />}
+        </CarouselDemo>
       </div>
     </section>
   );
@@ -167,9 +208,7 @@ const ContactSection = () => {
     },
   ]);
 
-
   const callback = (item: any) => {
-   
     setState((prev) => ({
       ...prev,
       [item.name]: item.value,

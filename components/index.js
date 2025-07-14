@@ -7,3 +7,4 @@ export { default as Footer } from "./footer/Footer.tsx";
 export { InputDemo } from "./input/InputDemo.tsx";
 export { TextareaDemo } from "./textarea/TextareaDemo.tsx";
 export { SelectScrollable } from "./select/select-scrollable/SelectScrollable.tsx";
+export { CarouselDemo } from "./carousel/CarouselDemo.tsx";
