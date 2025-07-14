@@ -13,7 +13,7 @@ import {
 import localData from "@/localData";
 import { useGlobalContext } from "@/context";
 
-const { headerCoverIcon, introCoverIcon } = localData.svgs;
+const { headerCoverIcon, introCoverIcon, mercedes, kamado, forGood } = localData.svgs;
 const { catImage, birdsImage } = localData.images;
 
 const Content = () => {
@@ -26,7 +26,7 @@ const Content = () => {
         <ShowcaseSection />
         <AboutSection />
         <BrandsSection />
-        <IntroSection />
+        {/* <IntroSection /> */}
         <ContactSection />
       </main>
       <Footer />
@@ -66,52 +66,114 @@ const AboutSection = () => {
 };
 
 const BrandLogo = ({ item }: any) => {
-  return <div>brandLogo</div>;
+  return (
+    <>
+      <div className="brand-item px-[40px] py-[22px] rounded-[25px] duration-[.5s]">
+        <div className="w-[115px] h-[40px]">{item.cover}</div>
+      </div>
+      <style>
+        {`
+          .brand-item {
+            background: #faf9fb;
+            &:hover {
+              // background: #f6f4f9;
+              background: #000;
+              svg path {
+                fill: #fff;
+              }
+            }
+            svg {
+             width: 100%;
+             height: 100%;
+             object-fit:contain;
+             transition: .3s;
+             path {
+              fill: #000;
+             }
+            }
+          }
+          `}
+      </style>
+    </>
+  );
 };
 
 const BrandsSection = () => {
   return (
-    <section className="about  text-[1.2rem] md:text-[1.8rem] font-[300] py-[3rem] md:py-[7.5rem]">
+    <section className="brands  text-[1.2rem] md:text-[1.8rem] font-[300] py-[3rem] md:py-[7.5rem]">
       <div className="container">
-        <h2 className="contact-title text-2xl md:text-3xl font-medium mx-auto  mb-[80px] max-w-[500px]  lg:max-w-[300px] text-center">
+        <h2 className="contact-title text-2xl md:text-3xl font-medium mx-auto lg:mb-[80px] mb-[20px] max-w-[300px]  lg:max-w-[400px] text-center">
           Brands Our Team Has Worked With
         </h2>
       </div>
-      <div className="border">
+      <div className="brands-content">
         <CarouselDemo
-          angles={false}
-          className="custom-carousel mx-[130px]"
-          autoplay={true}
+          // angles={false}
+          className="custom-carousel mb-4"
+          // autoplay={true}
           items={[
-            { cover: "galleryImage1" },
-            { cover: "galleryImage2" },
-            { cover: "galleryImage4" },
-            { cover: "galleryImage5" },
-            { cover: "galleryImage6" },
+            { cover: mercedes },
+            { cover: kamado },
+            { cover: forGood },
+            { cover: mercedes },
+            { cover: kamado },
+            { cover: forGood },
+            { cover: mercedes },
+            { cover: kamado },
+            { cover: forGood },
+          ]}
+        >
+          {({ item, index }) => <BrandLogo item={item} index={index} />}
+        </CarouselDemo>
+        <CarouselDemo
+          // angles={false}
+          className="custom-carousel"
+          // autoplay={true}
+          backwards={true}
+          items={[
+            { cover: mercedes },
+            { cover: kamado },
+            { cover: forGood },
+            { cover: mercedes },
+            { cover: kamado },
+            { cover: forGood },
+            { cover: mercedes },
+            { cover: kamado },
+            { cover: forGood },
           ]}
         >
           {({ item, index }) => <BrandLogo item={item} index={index} />}
         </CarouselDemo>
       </div>
+      <style>{`
+        .brands-content:hover {
+          .animate-scroll {
+            animation-play-state: paused;
+          }
+          .animate-scroll-backwards {
+            animation-play-state: paused;
+          }
+        }
+      `}</style>
     </section>
   );
 };
 
-const IntroSection = () => {
-  return (
-    <section className="intro  text-[1rem]  font-normal py-[3rem] md:pb-[3rem] md:py-[7.5rem]">
-      <div className="container lg:flex justify-between items-center max-w-[1000px]">
-        <div className="about-content max-w-[400px]  mx-auto xl:mx-[50px]">
-          <p className="mb-[2rem]">
-            Local legends. Startup rebels. Enterprise reshapers. If you're ready to grow with intent and
-            integrity, we’re here to collaborate.
-          </p>
-        </div>
-        <div className="intro-cover  max-w-[300px] mx-auto">{introCoverIcon}</div>
-      </div>
-    </section>
-  );
-};
+// const IntroSection = () => {
+//   return (
+//     <section className="intro  text-[1rem]  font-normal py-[3rem] md:pb-[3rem] md:py-[7.5rem]">
+//       <div className="container lg:flex justify-between items-center max-w-[1000px]">
+//         <div className="about-content max-w-[400px]  mx-auto xl:mx-[50px]">
+//           <p className="mb-[2rem]">
+//             Local legends. Startup rebels. Enterprise reshapers. If you're ready to grow with intent and
+//             integrity, we’re here to collaborate.
+//           </p>
+//         </div>
+//         <div className="intro-cover  max-w-[300px] mx-auto">{introCoverIcon}</div>
+//       </div>
+//     </section>
+//   );
+// };
 
 const ContactSection = () => {
   const { sendEmail } = useGlobalContext();
@@ -302,15 +364,6 @@ const ContactSection = () => {
               value={state.problems}
               callback={(e) => handleOnChange(e)}
             />
-
-            {/* <SelectScrollable
-              label="State the Problem(s) to Be Solved"
-              defaultItems={problems}
-              callback={(item) => callback({ ...item, name: "problems" })}
-              placeholder="Select State..."
-              triggerClassName={`selectScrollable-trigger-custom py-6 mb-6 w-full`}
-              contentClassName={`selectScrollable-content-custom `}
-            /> */}
 
             <ButtonDemo disabled={isLoading} text="Submit" className="w-full py-5" />
           </form>
