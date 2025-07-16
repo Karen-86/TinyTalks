@@ -13,8 +13,8 @@ import {
 import localData from "@/localData";
 import { useGlobalContext } from "@/context";
 
-const { headerCoverIcon, introCoverIcon, kurgo, kamado, forGood } = localData.svgs;
-const { mercedes, soleilCreative } = localData.images;
+const { headerCoverIcon, introCoverIcon, kurgo, kamado, forGood,detroit  } = localData.svgs;
+const { mercedes, soleilCreative, ams } = localData.images;
 
 const Content = () => {
   return (
@@ -117,16 +117,26 @@ const BrandsSection = () => {
             { cover: kamado },
             { cover: forGood },
             { coverImage: soleilCreative },
+            { coverImage: ams },
+            { cover: detroit },
+            
             { coverImage: mercedes },
             { cover: kurgo },
             { cover: kamado },
             { cover: forGood },
             { coverImage: soleilCreative },
+            { coverImage: ams },
+            { cover: detroit },
+            
             { coverImage: mercedes },
             { cover: kurgo },
             { cover: kamado },
             { cover: forGood },
             { coverImage: soleilCreative },
+            { coverImage: ams },
+            { cover: detroit },
+          
+      
           ]}
         >
           {({ item, index }) => <BrandLogo item={item} index={index} />}
