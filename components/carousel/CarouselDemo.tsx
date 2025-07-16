@@ -132,11 +132,11 @@ export function CarouselDemo({
         }
 
         .animate-scroll {
-          animation: scroll 60s linear infinite;
+          animation: scroll 30s linear infinite;
         }
 
         .animate-scroll-backwards {
-          animation: scrollBackwards 60s linear infinite;
+          animation: scrollBackwards 30s linear infinite;
         }
 
       `}</style>

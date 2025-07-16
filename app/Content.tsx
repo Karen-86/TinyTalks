@@ -88,7 +88,7 @@ const BrandLogo = ({ item }: any) => {
              height: 100%;
              object-fit:contain;
              path {
-              fill: #000;
+              // fill: #000;
              }
             }
           }
