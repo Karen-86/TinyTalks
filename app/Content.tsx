@@ -77,10 +77,10 @@ const BrandLogo = ({ item }: any) => {
           .brand-item {
             background: #faf9fb;
             &:hover {
-              // background: #f6f4f9;
-              background: #000;
+              background: #f6f4f9;
+              // background: #000;
               svg path {
-                fill: #fff;
+                // fill: #fff;
               }
             }
             svg {
