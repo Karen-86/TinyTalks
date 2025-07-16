@@ -268,7 +268,7 @@ const localData = {
 
     forGood: (
       <svg
-        className="mt-[-8px]"
+        // className="mt-[-8px]"
         width="301"
         height="115"
         viewBox="0 0 301 115"

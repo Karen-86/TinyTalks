@@ -69,8 +69,8 @@ const BrandLogo = ({ item }: any) => {
   return (
     <>
       <div className="brand-item px-[40px] py-[22px] rounded-[25px] ">
-        {item.cover && <div className="w-[115px] h-[40px] object-contain">{item.cover}</div>}
-        {item.coverImage && <img className="w-[115px] h-[40px] object-contain" src={item.coverImage} alt="" />}
+        {item.cover && <div className="w-[115px] h-[40px] object-contain mx-auto">{item.cover}</div>}
+        {item.coverImage && <img className="w-[115px] h-[40px] object-contain mx-auto" src={item.coverImage} alt="" />}
       </div>
       <style>
         {`
@@ -108,9 +108,10 @@ const BrandsSection = () => {
       </div>
       <div className="brands-content">
         <CarouselDemo
-          // angles={false}
+          angles={false}
           className="custom-carousel mb-4"
-          // autoplay={true}
+          autoplay={true}
+          loop={true}
           items={[
             { coverImage: mercedes },
             { cover: kurgo },
@@ -121,23 +122,7 @@ const BrandsSection = () => {
             { coverImage: ams },
             { cover: detroit },
             
-            { coverImage: mercedes },
-            { cover: kurgo },
-            { cover: kamado },
-            { cover: forGood },
-            { coverImage: soleilCreative },
-            { coverImage: parkService },
-            { coverImage: ams },
-            { cover: detroit },
-            
-            { coverImage: mercedes },
-            { cover: kurgo },
-            { cover: kamado },
-            { cover: forGood },
-            { coverImage: soleilCreative },
-            { coverImage: parkService },
-            { coverImage: ams },
-            { cover: detroit },
+
           
       
           ]}
