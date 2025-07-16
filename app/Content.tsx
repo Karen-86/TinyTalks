@@ -77,10 +77,10 @@ const BrandLogo = ({ item }: any) => {
           .brand-item {
             background: #faf9fb;
             &:hover {
-              background: #f6f4f9;
-              // background: #000;
+              // background: #f6f4f9;
+              background: #000;
               svg path {
-                // fill: #fff;
+                fill: #fff;
               }
             }
             svg {
@@ -107,7 +107,7 @@ const BrandsSection = () => {
         </h2>
       </div>
       <div className="brands-content">
-        <CarouselDemo
+        {/* <CarouselDemo
           angles={false}
           className="custom-carousel mb-4"
           autoplay={true}
@@ -121,43 +121,44 @@ const BrandsSection = () => {
             { coverImage: parkService },
             { coverImage: ams },
             { cover: detroit },
-            
-
-          
-      
-          ]}
-        >
-          {({ item, index }) => <BrandLogo item={item} index={index} />}
-        </CarouselDemo>
-        {/* <CarouselDemo
-          // angles={false}
-          className="custom-carousel"
-          // autoplay={true}
-          backwards={true}
-          items={[
-            { coverImage: mercedes },
-            { cover: kurgo },
-            { cover: kamado },
-            { cover: forGood },
-            { coverImage: mercedes },
-            { cover: kurgo },
-            { cover: kamado },
-            { cover: forGood },
-            { coverImage: mercedes },
-            { cover: kurgo },
-            { cover: kamado },
-            { cover: forGood },
           ]}
         >
           {({ item, index }) => <BrandLogo item={item} index={index} />}
         </CarouselDemo> */}
+
+        <div className="w-full overflow-hidden">
+
+        <CarouselDemo
+          // angles={false}
+          className="custom-carousel w-[3000px]"
+          // autoplay={true}
+          items={[
+              { coverImage: mercedes },
+            { cover: kurgo },
+            { cover: kamado },
+            { cover: forGood },
+            { coverImage: soleilCreative },
+            { coverImage: parkService },
+            { coverImage: ams },
+            { cover: detroit },
+
+            //   { coverImage: mercedes },
+            // { cover: kurgo },
+            // { cover: kamado },
+            // { cover: forGood },
+            // { coverImage: soleilCreative },
+            // { coverImage: parkService },
+            // { coverImage: ams },
+            // { cover: detroit },
+          ]}
+          >
+          {({ item, index }) => <BrandLogo item={item} index={index} />}
+        </CarouselDemo>
+      </div>
       </div>
       <style>{`
         .brands-content:hover {
           .animate-scroll {
-            animation-play-state: paused;
-          }
-          .animate-scroll-backwards {
             animation-play-state: paused;
           }
         }
