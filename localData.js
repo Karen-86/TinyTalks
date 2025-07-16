@@ -3,7 +3,8 @@ const images = {
   exampleImage: "/assets/images/example.png",
   catImage: "/assets/images/rest/cat.gif",
   birdsImage: "/assets/images/rest/birds.gif",
-  mercedes: '/assets/images/icons/brands/Mercedes-Logo.svg'
+  mercedes: '/assets/images/icons/brands/Mercedes-Logo.svg',
+  soleilCreative: '/assets/images/icons/brands/SoleilCreativeXIslandRootsCharters_Logo2.png',
 };
 
 const localData = {

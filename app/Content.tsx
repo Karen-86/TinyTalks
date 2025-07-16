@@ -14,7 +14,7 @@ import localData from "@/localData";
 import { useGlobalContext } from "@/context";
 
 const { headerCoverIcon, introCoverIcon, kurgo, kamado, forGood } = localData.svgs;
-const { mercedes } = localData.images;
+const { mercedes, soleilCreative } = localData.images;
 
 const Content = () => {
   return (
@@ -70,7 +70,7 @@ const BrandLogo = ({ item }: any) => {
     <>
       <div className="brand-item px-[40px] py-[22px] rounded-[25px] ">
         {item.cover && <div className="w-[115px] h-[40px]">{item.cover}</div>}
-        {item.coverImage && <img className="w-[115px] h-[40px]" src={mercedes} alt="" />}
+        {item.coverImage && <img className="w-[115px] h-[40px]" src={item.coverImage} alt="" />}
       </div>
       <style>
         {`
@@ -116,19 +116,22 @@ const BrandsSection = () => {
             { cover: kurgo },
             { cover: kamado },
             { cover: forGood },
+            { coverImage: soleilCreative },
             { coverImage: mercedes },
             { cover: kurgo },
             { cover: kamado },
             { cover: forGood },
+            { coverImage: soleilCreative },
             { coverImage: mercedes },
             { cover: kurgo },
             { cover: kamado },
             { cover: forGood },
+            { coverImage: soleilCreative },
           ]}
         >
           {({ item, index }) => <BrandLogo item={item} index={index} />}
         </CarouselDemo>
-        <CarouselDemo
+        {/* <CarouselDemo
           // angles={false}
           className="custom-carousel"
           // autoplay={true}
@@ -149,7 +152,7 @@ const BrandsSection = () => {
           ]}
         >
           {({ item, index }) => <BrandLogo item={item} index={index} />}
-        </CarouselDemo>
+        </CarouselDemo> */}
       </div>
       <style>{`
         .brands-content:hover {
