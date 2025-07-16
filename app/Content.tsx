@@ -14,7 +14,7 @@ import localData from "@/localData";
 import { useGlobalContext } from "@/context";
 
 const { headerCoverIcon, introCoverIcon, kurgo, kamado, forGood,detroit  } = localData.svgs;
-const { mercedes, soleilCreative, ams } = localData.images;
+const { mercedes, soleilCreative, ams ,parkService} = localData.images;
 
 const Content = () => {
   return (
@@ -69,8 +69,8 @@ const BrandLogo = ({ item }: any) => {
   return (
     <>
       <div className="brand-item px-[40px] py-[22px] rounded-[25px] ">
-        {item.cover && <div className="w-[115px] h-[40px]">{item.cover}</div>}
-        {item.coverImage && <img className="w-[115px] h-[40px]" src={item.coverImage} alt="" />}
+        {item.cover && <div className="w-[115px] h-[40px] object-contain">{item.cover}</div>}
+        {item.coverImage && <img className="w-[115px] h-[40px] object-contain" src={item.coverImage} alt="" />}
       </div>
       <style>
         {`
@@ -117,6 +117,7 @@ const BrandsSection = () => {
             { cover: kamado },
             { cover: forGood },
             { coverImage: soleilCreative },
+            { coverImage: parkService },
             { coverImage: ams },
             { cover: detroit },
             
@@ -125,6 +126,7 @@ const BrandsSection = () => {
             { cover: kamado },
             { cover: forGood },
             { coverImage: soleilCreative },
+            { coverImage: parkService },
             { coverImage: ams },
             { cover: detroit },
             
@@ -133,6 +135,7 @@ const BrandsSection = () => {
             { cover: kamado },
             { cover: forGood },
             { coverImage: soleilCreative },
+            { coverImage: parkService },
             { coverImage: ams },
             { cover: detroit },
           
