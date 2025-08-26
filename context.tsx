@@ -33,18 +33,29 @@ export default function Provider({
       setIsLoading(false);
       return;
     }
+
     emailjs.sendForm(service, template, form, public_key).then(
       (result) => {
         alert("Your message was successfully sent.");
         setState((prev) => ({ ...prev, isFormSubmitted: true }));
 
         setIsLoading(false);
+        trackLeadConversion();
       },
       (error) => {
         alert("Something went wrong. Please try again.");
         setIsLoading(false);
       }
     );
+  };
+
+  const trackLeadConversion = () => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "close_convert_lead", {
+        // optional parameters
+      });
+    }
+    console.log("GA event 'close_convert_lead' fired");
   };
 
   return (

@@ -1,20 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  Navbar,
-  Footer,
-  InputDemo,
-  ButtonDemo,
-  SelectScrollable,
-  TextareaDemo,
-  CarouselDemo,
-} from "@/components/index.js";
+import { Navbar, Footer, InputDemo, ButtonDemo, SelectScrollable, TextareaDemo, CarouselDemo } from "@/components/index.js";
 import localData from "@/localData";
 import { useGlobalContext } from "@/context";
 
-const { headerCoverIcon, introCoverIcon, kurgo, kamado, forGood,detroit  } = localData.svgs;
-const { mercedes, soleilCreative, ams ,parkService} = localData.images;
+const { headerCoverIcon, introCoverIcon, kurgo, kamado, forGood, detroit } = localData.svgs;
+const { mercedes, soleilCreative, ams, parkService } = localData.images;
 
 const Content = () => {
   return (
@@ -51,13 +43,12 @@ const AboutSection = () => {
       <div className="container">
         <div className="about-content max-w-[750px] 6xl:max-w-none mx-auto xl:mx-0">
           <p className="mb-[2rem]">
-            Thel.agency is a modern consultancy focused on practical, high-impact improvements. We combine
-            precision marketing, operational streamlining, and digital transformation to help brands like
-            yours find their own way forward.
+            Thel.agency is a modern consultancy focused on practical, high-impact improvements. We combine precision marketing,
+            operational streamlining, and digital transformation to help brands like yours find their own way forward.
           </p>
           <p className="mb-[2rem]">
-            From leading ad campaigns, to rethinking outdated workflows, to guiding you through AI-powered
-            solutions — we help businesses like yours unlock what's next.
+            From leading ad campaigns, to rethinking outdated workflows, to guiding you through AI-powered solutions — we help
+            businesses like yours unlock what's next.
           </p>
         </div>
       </div>
@@ -106,55 +97,24 @@ const BrandsSection = () => {
           Brands Our Team Has Worked With
         </h2>
       </div>
-      <div className="brands-content">
-        {/* <CarouselDemo
-          angles={false}
-          className="custom-carousel mb-4"
-          autoplay={true}
-          loop={true}
-          items={[
-            { coverImage: mercedes },
-            { cover: kurgo },
-            { cover: kamado },
-            { cover: forGood },
-            { coverImage: soleilCreative },
-            { coverImage: parkService },
-            { coverImage: ams },
-            { cover: detroit },
-          ]}
-        >
-          {({ item, index }) => <BrandLogo item={item} index={index} />}
-        </CarouselDemo> */}
-
+      {/* <div className="brands-content">
         <div className="w-full overflow-hidden">
-
-        <CarouselDemo
-          // angles={false}
-          className="custom-carousel w-[3000px]"
-          // autoplay={true}
-          items={[
+          <CarouselDemo
+            className="custom-carousel w-[3000px]"
+            items={[
               { coverImage: mercedes },
-            { cover: kurgo },
-            { cover: kamado },
-            { cover: forGood },
-            { coverImage: soleilCreative },
-            { coverImage: parkService },
-            { coverImage: ams },
-            { cover: detroit },
-
-            //   { coverImage: mercedes },
-            // { cover: kurgo },
-            // { cover: kamado },
-            // { cover: forGood },
-            // { coverImage: soleilCreative },
-            // { coverImage: parkService },
-            // { coverImage: ams },
-            // { cover: detroit },
-          ]}
+              { cover: kurgo },
+              { cover: kamado },
+              { cover: forGood },
+              { coverImage: soleilCreative },
+              { coverImage: parkService },
+              { coverImage: ams },
+              { cover: detroit },
+            ]}
           >
-          {({ item, index }) => <BrandLogo item={item} index={index} />}
-        </CarouselDemo>
-      </div>
+            {({ item, index }) => <BrandLogo item={item} index={index} />}
+          </CarouselDemo>
+        </div>
       </div>
       <style>{`
         .brands-content:hover {
@@ -162,7 +122,23 @@ const BrandsSection = () => {
             animation-play-state: paused;
           }
         }
-      `}</style>
+      `}</style> */}
+      <div className="brands-content">
+                <div className="w-full overflow-hidden">
+          <CarouselDemo
+            items={[
+              { coverImage: mercedes },
+              { cover: kurgo },
+              { cover: kamado },
+              { cover: forGood },
+              { coverImage: soleilCreative },
+              { coverImage: parkService },
+              { coverImage: ams },
+              { cover: detroit },
+            ]}
+          />
+        </div>
+      </div>
     </section>
   );
 };
@@ -218,38 +194,17 @@ const ContactSection = () => {
     },
     {
       id: 3,
-      label: "a couple of month",
-      value: "a couple of month",
+      label: "a couple of months",
+      value: "a couple of months",
     },
     {
       id: 4,
       label: "long term engagement",
       value: "long term engagement",
     },
-    {
-      id: 5,
-      label: "to be confirmed",
-      value: "to be confirmed",
-    },
   ]);
 
-  // const [problems, setProblems] = useState([
-  //   {
-  //     id: 1,
-  //     label: "Low conversion rates",
-  //     value: "Low conversion rates",
-  //   },
-  //   {
-  //     id: 2,
-  //     label: "Tracking issues",
-  //     value: "Tracking issues",
-  //   },
-  //   {
-  //     id: 3,
-  //     label: "Scaling campaigns",
-  //     value: "Scaling campaigns",
-  //   },
-  // ]);
+
   const [budgetRange, setBudgetRange] = useState([
     {
       id: 1,
@@ -270,11 +225,6 @@ const ContactSection = () => {
       id: 4,
       label: "$50K +",
       value: "$50K +",
-    },
-    {
-      id: 5,
-      label: "to be confirmed",
-      value: "to be confirmed",
     },
   ]);
 
@@ -297,16 +247,37 @@ const ContactSection = () => {
             id="contact-form-2 "
             action="#/"
             method="POST"
-            onSubmit={(e) =>
+            onSubmit={(e) => {
+              e.preventDefault();
+              // EXTRA start
+              const form = e.target as any;
+
+              const name = form.name?.value?.trim();
+              const submittedEmail = form.submitted_email?.value?.trim();
+              const company = form.company?.value?.trim();
+              const problems = form.problems?.value?.trim();
+              const timeline = form.timeline?.value?.trim();
+              const budgetRange = form.budgetRange?.value?.trim();
+
+              const CONTENT =
+                (name ? `<p><strong>Name</strong>: ${name}</p>` : "") +
+                (submittedEmail ? `<p><strong>Email</strong>: ${submittedEmail}</p>` : "") +
+                (company ? `<p><strong>Company</strong>: ${company}</p>` : "") +
+                (timeline ? `<p><strong>Timeline</strong>: ${timeline}</p>` : "") +
+                (budgetRange ? `<p><strong>Budget Range</strong>: ${budgetRange}</p>` : "") +
+                (problems ? `<p><strong>Problems</strong>: ${problems}</p>` : "");
+              form.CONTENT.value = CONTENT;
+              // EXTRA end
+
               sendEmail({
                 event: e,
                 service: "service_m0znoir",
                 template: "template_u1lzg8d",
-                form: e.target,
+                form: form,
                 public_key: "XROQkLsbKgfMPUjh6",
                 setIsLoading: setIsLoading,
-              })
-            }
+              });
+            }}
           >
             <InputDemo
               placeholder="Jane"
@@ -373,6 +344,8 @@ const ContactSection = () => {
               callback={(e) => handleOnChange(e)}
             />
 
+            <input type="text" name="CONTENT" className="hidden" />
+            <input type="text" name="to_email" defaultValue="wjonpost@gmail.com" className="hidden" />
             <ButtonDemo disabled={isLoading} text="Submit" className="w-full py-5" />
           </form>
         </div>

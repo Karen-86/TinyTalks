@@ -25,9 +25,7 @@ export const metadata: Metadata = {
   description:
     "We combine precision marketing, operational streamlining, and digital transformation to help brands like yours find their own way forward.",
   icons: {
-    icon: [
-      { rel: "icon", url: "/assets/images/favicon/favicon-160x110.webp", sizes: "160x110" },
-    ],
+    icon: [{ rel: "icon", url: "/assets/images/favicon/favicon-160x110.webp", sizes: "160x110" }],
     apple: "/assets/images/favicon/apple-icon.png",
   },
   openGraph: {
@@ -56,6 +54,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XV7PDQFX1S"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-XV7PDQFX1S');
+            `,
+          }}
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${sora.variable} antialiased`}>
         <Provider>
           {children}
